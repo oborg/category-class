@@ -48,7 +48,11 @@ function be_display_posts_custom_fields( $output, $atts, $image, $title, $date, 
     
     $categories = get_the_terms( $id, 'category' );
     //view variabe values
-    print_r($categories)
+    //print_r($categories);
+
+    foreach ($categories as $key => $value)
+       echo "key: " . $key . ", value: " . $value . "<br>";
+    }
 	
     foreach((get_the_category($post->ID)) as $category){
         $classes[] = $category->category_nicename;
