@@ -53,7 +53,7 @@ function be_display_posts_custom_fields( $output, $atts, $image, $title, $date, 
     foreach ($categories as $key => $value){
        //echo "key: " . print_r($key) . ", value: " . print_r($value) . "<br>";
 	    foreach($value as $vk => $vv){
-		    echo $vv . "<br>";
+		    echo "key: " . $vk . ", value: " . $vv . "<br>";
 	    }
     }
 	
