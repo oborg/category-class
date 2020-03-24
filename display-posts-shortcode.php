@@ -45,6 +45,7 @@ function be_display_posts_custom_fields( $output, $atts, $image, $title, $date, 
 	$dob = esc_attr( get_post_meta( $post->ID, 'DOB', true ) );
 	$markings = esc_attr( get_post_meta( $post->ID, 'Markings', true ) );
 	$linkto = 'More Information';
+	$classes = '';
     
     $categories = get_the_terms( $id, 'category' );
     //view variabe values
@@ -53,7 +54,10 @@ function be_display_posts_custom_fields( $output, $atts, $image, $title, $date, 
     foreach ($categories as $key => $value){
        //echo "key: " . print_r($key) . ", value: " . print_r($value) . "<br>";
 	    foreach($value as $vk => $vv){
-		    echo "key: " . $vk . ", value: " . $vv . "<br>";
+		    //echo "key: " . $vk . ", value: " . $vv . "<br>";
+		    if($vk === "name"){   
+		    	$classes .= ' ' . $vv;
+		    }
 	    }
     }
 	
@@ -83,7 +87,7 @@ function be_display_posts_custom_fields( $output, $atts, $image, $title, $date, 
     }
 	if( isset( $linkto ) ) $linkto = '<a class="elementor-button-link elementor-button elementor-size-sm" href="' . apply_filters( 'the_permalink', get_permalink() ) . '">' . $linkto . '</a> ';
 	// Now let's rebuild the output. 
-	$output = '<li class="' . $categories . ' " >' . $image . $title . $cost . $dob . $markings . $linkto . $date . $excerpt . '</li>';
+	$output = '<li class="' . $classes . ' " >' . $image . $title . $cost . $dob . $markings . $linkto . $date . $excerpt . '</li>';
 	// Finally we'll return the modified output
 	return $output;
     
