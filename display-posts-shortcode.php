@@ -47,7 +47,10 @@ function be_display_posts_custom_fields( $output, $atts, $image, $title, $date, 
 	$linkto = 'More Information';
     
     $categories = get_the_terms( $id, 'category' );
-    foreach((get_the_category($post->ID)) as $category)
+    //view variabe values
+    print_r($categories)
+	
+    foreach((get_the_category($post->ID)) as $category){
         $classes[] = $category->category_nicename;
     
     
@@ -55,10 +58,12 @@ function be_display_posts_custom_fields( $output, $atts, $image, $title, $date, 
   
     
 	if( isset( $cost ) ) { 
-        if ($cost != '') {
-            $cost = '<span class="cost">' . $cost . '</span> ';
-        }
+	    if ($cost != '') {
+                $cost = '<span class="cost">' . $cost . '</span> ';
+            }
+    	}
     }
+	    
     if( isset( $dob ) ) { 
         if ($dob != '') {
             $dob = '<span class="dob">' . $dob . '</span> ';
