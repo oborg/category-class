@@ -50,8 +50,8 @@ function be_display_posts_custom_fields( $output, $atts, $image, $title, $date, 
     //view variabe values
     //print_r($categories);
 
-    foreach ($categories as $key => $value)
-       echo "key: " . $key . ", value: " . $value . "<br>";
+    foreach ($categories as $key => $value){
+       echo "key: " . print_r($key) . ", value: " . print_r($value) . "<br>";
     }
 	
     foreach((get_the_category($post->ID)) as $category){
